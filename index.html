@@ -32,7 +32,7 @@
                     <tr v-for="tarea in tareas">
                         <td>
                             <label>
-                                <input type="checkbox" />
+                                <input type="checkbox" v-model="tarea.hecho" />
                                 <span>
 
                                 </span>
@@ -42,7 +42,9 @@
                         <td>
                             {{tarea.titulo}}
                         </td>
-                        <td></td>
+                        <td>
+                            <button class="waves-effect waves-light btn" v-on:click="eliminar(tarea)">Eliminar</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -55,15 +57,23 @@
             data: {
                 nameApp: "Tareas Vueee",
                 tareas: [{
-                    titulo: "Tarea 1"
+                    titulo: "Tarea 1",
+                    hecho:true
                 },
                 {
-                    titulo: "Tarea 2"
+                    titulo: "Tarea 2",
+                    hecho: false
                 },
                 {
                     titulo: "Tarea 3",
+                    hecho: false
                 }
                 ]
+            },
+            methods:{
+                eliminar(tarea){
+                    console.log(tarea);
+                }
             }
         })
     </script>
